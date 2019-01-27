@@ -5,11 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Deck {
-	private List<Card> cards;
-
-	public Deck() {
-		cards = newDeck();
-	}
+	private ArrayList<Card> cards; // this is a deck of cards 
 
 	// In the constructor, initialize the List with all 52 cards.
 	private List<Card> newDeck() {
@@ -28,11 +24,11 @@ public class Deck {
 
 	}
 
-	private Card dealCard() {
+	public Card dealCard() { // give a card to player
 		return cards.remove(0);
 	}
 
-	private void shuffle() {
+	public void shuffle() {
 		Collections.shuffle(cards);
 	}
 }

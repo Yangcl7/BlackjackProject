@@ -40,6 +40,27 @@ public class Card {
 		return "Card [hashCode()=" + hashCode() + "]";
 	}
 	public int getValue() {
+		if(rank = 10){
+			int value = 10;
+		}
+		else
+			
 		return rank.getValue();
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
