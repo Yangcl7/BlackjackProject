@@ -26,10 +26,10 @@ public abstract class playBlackJack {
 		// if either the deal or play have a 21 game end
 		if (BlackjackHand.hasBlackjack(handValue) && dealer.dealerHasBlackjack()) {
 			System.out.println("It's a tight.");
-		
+
 		} else if (BlackjackHand.hasBlackjack(handValue)) {
 			System.out.println("You have BlackJack! YOU WIN ");
-		
+
 		} else if (dealer.dealerHasBlackjack()) {
 			System.out.println("Dealer win, you lost.");
 		}
@@ -41,18 +41,40 @@ public abstract class playBlackJack {
 		Scanner input = new Scanner(System.in);
 		int kb = input.nextInt();
 		// If hit, need to pass a single card to player
-		
-		if (kb ==1 ) {
-			
+
+		while (kb == 1) {
+			playerHit(deck, hand);
+			System.out.println("Your new card is");
+			System.out.println(hand);
+			handValue = Hand.getHandValue(hand);
+			if (Bust(handValue)) {
+				System.out.println("Sorry, you lost.");
+				break;
+			}
+			if (handValue <= 21) { // in this case player would want to stand call stand
+				System.out.println("Would you like to hit or stand?");
+				System.out.println("1: Hit");
+				System.out.println("2: Stand");
+				kb = input.nextInt();
+
+			}
 
 		}
-		
+
 	}
+
+	protected static boolean Bust(int handValue) {
+		if (handValue > 21) {
+			System.out.println("You have busted!");
+			return true;
+		}
+		return false;
+	}
+
 	public static void playerHit(Deck deck, List<Card> hand) {
 		hand.add(deck.drawCard());
 		Card[] aHand = new Card[1];
 		aHand = hand.toArray(aHand);
-			
-		}
-	}
 
+	}
+}

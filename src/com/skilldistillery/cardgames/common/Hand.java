@@ -9,7 +9,7 @@ public class Hand {
 	public Hand() {
 
 	}
-
+	// to calculate the value of the players hand
 	public static int getHandValue(List<Card> hand) {
 		Card[] aHand = new Card[] {};
 		aHand = hand.toArray(aHand);

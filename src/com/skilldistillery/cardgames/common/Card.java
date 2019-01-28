@@ -3,11 +3,11 @@ package com.skilldistillery.cardgames.common;
 public class Card {
 	private Rank rank;
 	private Suit suit;
-	
-	public Card(Suit suit, Rank rank){
+
+	public Card(Suit suit, Rank rank) {
 		this.suit = suit;
 		this.rank = rank;
-		
+
 	}
 
 	@Override
@@ -40,27 +40,6 @@ public class Card {
 		return "Card [hashCode()=" + hashCode() + "]";
 	}
 	public int getValue() {
-		if(rank = 10 != null){
-			int value = 10;
-		}
-		else
-			
 		return rank.getValue();
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
