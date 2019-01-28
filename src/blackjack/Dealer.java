@@ -36,4 +36,13 @@ public class Dealer {
 				dealer1Card = hand.toArray(dealer1Card);
 				System.out.println(dealer1Card[0]);
 		}
+	public boolean dealerHasBlackjack() {
+		if (hand.size() == 2 && handValue == 21) {
+			System.out.println("Dealer win with black jack");
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	}

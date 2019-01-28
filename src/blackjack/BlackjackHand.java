@@ -2,8 +2,8 @@ package blackjack;
 
 public class BlackjackHand {
 	
-	public static boolean BlackackHand(int bjValue) {
-		if(bjValue ==21) {
+	public static boolean hasBlackjack(int bjValue) {
+		if(bjValue == 21) {
 			return true;
 		}
 		else {

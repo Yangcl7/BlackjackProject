@@ -31,4 +31,8 @@ public class Deck {
 	public void shuffle() {
 		Collections.shuffle(cards);
 	}
+	// this will draw a card from deck
+	public Card drawCard() {
+		return cards.remove(0);
+	}
 }
