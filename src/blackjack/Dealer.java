@@ -31,4 +31,9 @@ public class Dealer {
 
 		}
 	}
-}
+	public void dealerFirstCard() { // 
+		Card[] dealer1Card = new Card[2];
+				dealer1Card = hand.toArray(dealer1Card);
+				System.out.println(dealer1Card[0]);
+		}
+	}

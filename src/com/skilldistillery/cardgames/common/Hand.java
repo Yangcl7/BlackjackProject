@@ -10,7 +10,7 @@ public class Hand {
 
 	}
 
-	public int getHandValue(List<Card> hand) {
+	public static int getHandValue(List<Card> hand) {
 		Card[] aHand = new Card[] {};
 		aHand = hand.toArray(aHand);
 		int handValue = 0;

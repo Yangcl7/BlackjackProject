@@ -40,7 +40,7 @@ public class Card {
 		return "Card [hashCode()=" + hashCode() + "]";
 	}
 	public int getValue() {
-		if(rank = 10){
+		if(rank = 10 != null){
 			int value = 10;
 		}
 		else
