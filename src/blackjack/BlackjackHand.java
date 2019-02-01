@@ -1,9 +1,9 @@
 package blackjack;
 
-public class BlackjackHand {
+public class BlackjackHand extends Hand{
 	
-	public static boolean hasBlackjack(int bjValue) {
-		if(bjValue == 21) {
+	public boolean hasBlackjack(int BlackJack) {
+		if(BlackJack == 21) {
 			return true;
 		}
 		else {
