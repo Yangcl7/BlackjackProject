@@ -14,8 +14,15 @@ public class PlayBlackJack extends Hand {
 	// main program page to play blackjack
 	public static void main(String[] args) {
 		PlayBlackJack app = new PlayBlackJack();
-		app.runBlackjack();
+		do {
+			app.runBlackjack();
+
+		} while (app.PlayAgain());
+		
+		System.out.println("Thanks for playing");
+
 	}
+	
 
 	public void runBlackjack() {
 		List<Card> hand = new ArrayList<>();
@@ -53,90 +60,87 @@ public class PlayBlackJack extends Hand {
 
 		System.out.println("Here is the Dealers hand");
 		dealer.getPlayHand().showDealerHand();
+		if (playerHandValue == 21) {
+			System.out.println("Player win with Black Jack");
+		}
 
 //		 if either the deal or play have a 21 game end
 //		if(player.getPlayHand() == dealer.getPlayHand()) {
 //		System.out.println("It's a tight.");
 //		}
-		while(playerHandValue < 21) {
-		System.out.println("Would you like to hit or stay?");
-		System.out.println("1: Hit");
-		System.out.println("2: Stay");
-		Scanner input = new Scanner(System.in);
-		int kb = input.nextInt();
-		
-		if (kb == 1) {
-			player.addCardtoHand(deck.dealCard());
-			player.getPlayHand().showPlayerHand();
-			playerHandValue = player.getPlayHand().calcHandValue();
-			System.out.println("Your total value is " + playerHandValue);
-			
-		}
-		if (playerHandValue > 21) {
-			System.out.println("bust, you lose");
-			break;
-		}
-		if (playerHandValue == 21) {
-			System.out.println("Black Jack, you win!!!");
-			break;
-		}
-		
-		if(kb == 2) {
-			System.out.println("Dealers flip hidden card, his second hand is: ");
-			dealer.getPlayHand().showPlayerHand();
-			int dealerHandTotal = dealer.getPlayHand().calcHandValue();
-			System.out.println(+ dealerHandTotal);
-			
-			while (dealerHandTotal < 17) {
-				System.out.println("Dealer will hit");
-				dealer.addCardtoHand(deck.dealCard());
-				dealer.getPlayHand().showPlayerHand();
-				dealerHandTotal = dealer.getPlayHand().calcHandValue();
+		while (playerHandValue < 21) {
+			System.out.println("Would you like to hit or stay?");
+			System.out.println("1: Hit");
+			System.out.println("2: Stay");
+			Scanner input = new Scanner(System.in);
+			int kb = input.nextInt();
+
+			if (kb == 1) {
+				player.addCardtoHand(deck.dealCard());
+				player.getPlayHand().showPlayerHand();
+				playerHandValue = player.getPlayHand().calcHandValue();
+				System.out.println("Your total value is " + playerHandValue);
+
+			}
+			if (playerHandValue > 21) {
+				System.out.println("bust, you lose");
 				break;
 			}
-			if (dealerHandTotal > 21) {
-				System.out.println("Dealer bust, you win!!!");
-				dealer.getPlayHand().showPlayerHand();
-				dealerHandTotal = dealer.getPlayHand().calcHandValue();
-				System.out.println(+ dealerHandTotal);
+			if (playerHandValue == 21) {
+				System.out.println("Black Jack, you win!!!");
 				break;
 			}
-			if(dealerHandTotal > 17){
-				if(dealerHandTotal > playerHandValue) {
-					System.out.println("Dealer has bigger hand, dealer win");
+
+			if (kb == 2) {
+				System.out.println("Dealers flip hidden card, his second hand is: ");
+				dealer.getPlayHand().showPlayerHand();
+				int dealerHandTotal = dealer.getPlayHand().calcHandValue();
+				System.out.println(+dealerHandTotal);
+
+				while (dealerHandTotal <= 17) {
+					System.out.println("Dealer will hit");
+					dealer.addCardtoHand(deck.dealCard());
+					dealer.getPlayHand().showPlayerHand();
+					dealerHandTotal = dealer.getPlayHand().calcHandValue();
+					System.out.println(+dealerHandTotal);
+
+				}
+				if (dealerHandTotal > 21) {
+					System.out.println("Dealer bust, you win!!! ");
+					dealerHandTotal = dealer.getPlayHand().calcHandValue();
 					break;
 				}
-				if(dealerHandTotal < playerHandValue) {
-					System.out.println("You has bigger hand, you win");
+				if (dealerHandTotal == 21) {
+					System.out.println("Dealer win with Black Jack sorry =(");
 					break;
 				}
-				
-				
+				if (dealerHandTotal > 17) {
+					if (dealerHandTotal > playerHandValue) {
+						System.out.println("Dealer has bigger hand, dealer win");
+						break;
+					}
+					if (dealerHandTotal < playerHandValue) {
+						System.out.println(playerHandValue);
+						System.out.println("You has bigger hand, you win");
+						break;
+					}
+
+				}
 			}
+		}
+	}
+
+	public boolean PlayAgain() {
+		Scanner input2 = new Scanner(System.in);
+		System.out.println("Would you like to play again? Y or N");
+		String play2 = input2.next();
+		PlayBlackJack app = new PlayBlackJack();
+
+		if (play2.equalsIgnoreCase("y")) {
+			return true;
+		} else {
+			return false;
 		}
 
-		
 	}
 }
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,9 +1,7 @@
 # Blackjack Project
 
 ### Project Description
-
-
-### Objectives
+* Using java development skills to creak a working Blackjack game with the basic Blackjack rule.
 
 
 ### Topics/Technologies
@@ -12,3 +10,5 @@
   * Inheritance
 * Java Collections Framework
 * Enumerated Types
+*Encapsulation
+*Looping
